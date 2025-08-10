@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { getSortedPostsData } from '@/lib/blog'
-import { formatDistanceToNow } from 'date-fns'
 
 export const metadata: Metadata = {
   title: 'Blog',
