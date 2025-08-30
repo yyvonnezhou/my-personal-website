@@ -524,8 +524,8 @@ interface TableRowData {
   priceChangeTodayPercent: number;
   t30dPriceChangePercent: number;
   marketCap: string;
-  evFy1Revenue: number;
-  evFy1Ebitda: number;
+  evFy2Revenue: number;
+  evFy2Ebitda: number;
   peRatio: number;
   t30dEpsRevision: number | string;
   revenueGrowth2025: number;
@@ -613,10 +613,10 @@ const DataTable: React.FC<{
                   {row.marketCap}
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {row.evFy1Revenue.toFixed(1)}x
+                  {row.evFy2Revenue.toFixed(1)}x
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {row.evFy1Ebitda.toFixed(1)}x
+                  {row.evFy2Ebitda.toFixed(1)}x
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
                   {row.peRatio.toFixed(1)}x
@@ -1066,8 +1066,8 @@ const MultiTickerDashboard: React.FC<MultiTickerDashboardProps> = ({ tickers, gr
           priceChangeTodayPercent: stockPrice?.changePercent || 0,
           t30dPriceChangePercent: 0, // Still placeholder for 30-day
           marketCap: stockPrice?.marketCapCalculated ? formatMarketCap(stockPrice.marketCapCalculated) : '$100B',
-          evFy1Revenue: stockPrice?.evRevenueRatio || 10.0,
-          evFy1Ebitda: stockPrice?.evEbitdaRatio || 25.0,
+          evFy2Revenue: stockPrice?.evFy2Revenue || 10.0,
+          evFy2Ebitda: stockPrice?.evFy2Ebitda || 25.0,
           peRatio: 30.0,
           t30dEpsRevision: "n/a",
           revenueGrowth2025: 10.0,
@@ -1166,8 +1166,8 @@ const MultiTickerDashboard: React.FC<MultiTickerDashboardProps> = ({ tickers, gr
         priceChangeTodayPercent,
         t30dPriceChangePercent,
         marketCap: realTimeMarketCap || '$100B',
-        evFy1Revenue: stockPrice?.evFy2Revenue || placeholderEVRevenue[ticker] || 10.0,
-        evFy1Ebitda: stockPrice?.evFy2Ebitda || placeholderEVEbitda[ticker] || 25.0,
+        evFy2Revenue: stockPrice?.evFy2Revenue || placeholderEVRevenue[ticker] || 10.0,
+        evFy2Ebitda: stockPrice?.evFy2Ebitda || placeholderEVEbitda[ticker] || 25.0,
         peRatio: stockPrice?.peRatio || placeholderPERatio[ticker] || 30.0,
         t30dEpsRevision: "n/a",
         revenueGrowth2025: stockPrice?.revenueGrowthPercent || placeholder2025RevenueGrowth[ticker] || 10.0,
